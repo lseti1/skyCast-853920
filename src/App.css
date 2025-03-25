@@ -1,1 +1,85 @@
+body {
+    background: linear-gradient(to top, blue, black);
+    width: 100vw;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
 
+.main {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80vw;
+
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.titleCardContainer {
+    background-color: grey;
+    padding: 30px;
+    margin: 0px;
+    box-sizing: border-box;
+
+    width: 80%;
+}
+
+.searchBarContainer {
+    background-color: rgb(192, 87, 87);
+    padding: 0px 30px;
+    margin: 0px;
+    box-sizing: border-box;
+
+    width: 80%;
+}
+
+.searchBarInput {
+    padding: 10px 5px;
+    margin: 0px;
+    /* box-sizing: border-box; */
+    width: 30%;
+}
+
+.weatherForDayContainer {
+    background-color: rgb(228, 132, 132);
+    padding: 0px 30px;
+    box-sizing: border-box;
+    width: 80%;
+}
+
+.forecastTitleContainer {
+    background-color: rgb(212, 212, 212);
+    text-align: center;
+    width: 80%;
+}
+
+.forecastContainer {
+    background-color: grey;
+    display: flex;
+    overflow-x: auto;
+    width: 80%;
+
+}
+
+.forecastData {
+    display: flex;
+    
+
+
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: 50%;
+
+    background-color: rgb(218, 95, 95);
+}
