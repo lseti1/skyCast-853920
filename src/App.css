@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to top, blue, black);
+    background: linear-gradient(to top, blue, rgb(5, 0, 51));
     width: 100vw;
     /* height: 100vh; */
     display: flex;
@@ -10,7 +10,7 @@ body {
 }
 
 .main {
-    background-color: black;
+    /* background-color: black; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -26,9 +26,20 @@ h1 {
     margin: 0px;
 }
 
+h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
 .titleCardContainer {
-    background-color: grey;
+    /* background-color: grey; */
     padding: 30px;
+    padding-left: 0px;
     margin: 0px;
     box-sizing: border-box;
 
@@ -36,8 +47,8 @@ h1 {
 }
 
 .searchBarContainer {
-    background-color: rgb(192, 87, 87);
-    padding: 0px 30px;
+    /* background-color: rgb(192, 87, 87); */
+    /* padding: 0px 30px; */
     margin: 0px;
     box-sizing: border-box;
 
@@ -52,34 +63,76 @@ h1 {
 }
 
 .weatherForDayContainer {
-    background-color: rgb(228, 132, 132);
-    padding: 0px 30px;
+    display: flex;
+    /* justify-content: space-between; */
+    /* background-color: rgb(228, 132, 132); */
     box-sizing: border-box;
+    /* padding: 100px 0px; */
     width: 80%;
 }
 
-.forecastTitleContainer {
-    background-color: rgb(212, 212, 212);
-    text-align: center;
-    width: 80%;
+.weatherForDayIcon {
+    height: 12vw;   
+    /* background-color: white; */
+}
+
+.weatherForDay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: rgb(95, 95, 95); */
 }
 
 .forecastContainer {
-    background-color: grey;
+    background-color: rgb(5, 0, 51);
     display: flex;
-    overflow-x: auto;
+    flex-direction: column;
+    align-items: center;
     width: 80%;
+    /* height: 40vh; */
+    box-shadow: 0px 0px 20px white;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 15px;
 
 }
 
-.forecastData {
+.forecastTitleContainer {
+    /* background-color: rgb(81, 0, 255); */
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1vh;
+}
+
+.forecastDataContainer {
     display: flex;
-    
+    width: 100%;
+
+    gap: 10px;
+}
 
 
+.individualForecastData {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
     box-sizing: border-box;
-    border: 1px solid black;
+    /* padding: 10px; */
     width: 50%;
+    font-size: 2vh;
+    text-align: center;
+    background: linear-gradient(to top, blue, rgb(223, 220, 255));
+}
 
-    background-color: rgb(218, 95, 95);
+
+
+.forecastIcons {
+    height: 15vh;
+    width: auto;
+
+    /* background-color: white; */
 }

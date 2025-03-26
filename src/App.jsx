@@ -41,42 +41,49 @@ function App() {
         {error && <p>Error: {error}</p>}
         {weatherData && !loading && !error && (
           <>
-            <h2>Weather in {city}</h2>
-            <p>Temperature: {Math.round(weatherData.main.temp)}°C (Max: {Math.round(weatherData.main.temp_max)} & Min: {Math.round(weatherData.main.temp_min)})</p>
-            <p>Description: {weatherData.weather[0].description}, {weatherData.weather[0].main}
-            <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="weatherIcon" />
-            </p>
+            <div className='weatherForDay'>
+              <h2>Weather in {city}</h2>
+              <p>Temperature: {Math.round(weatherData.main.temp)}°C (Max: {Math.round(weatherData.main.temp_max)} & 
+                Min: {Math.round(weatherData.main.temp_min)})<br />Description: {weatherData.weather[0].description}, 
+                {weatherData.weather[0].main}</p>
+            </div>
+            <div>
+              <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
+            </div>
           </>
         )}
       </div>
-      <div className='forecastTitleContainer'>
-        <h2>5-Day Forecast for {city}</h2>
-        <p>Note: Daily Temperatures are based on 7am measurements</p>
-      </div>
       
-      <div className="forecastContainer">
+      
       {forecastData && !loading && !error && (
+      <div className="forecastContainer">
         <>
-          {forecastData.list.filter((_, index) => index % 8 === 7).map((forecast, index) => (
-              <div className="forecastData">
-                <p>
-                  <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`} alt="weatherIcon" />
-                  <br />
-                  {new Date(forecast.dt * 1000).toLocaleString(undefined, { day: "2-digit", month: "2-digit" })}<br />{Math.round(forecast.main.temp)}°C
-                  <br />
-                  {forecast.weather[0].description}
-                  <br />
-                  Humidity: {forecast.main.humidity}%
-                  <br />
-                  Feels Like: {Math.round(forecast.main.feels_like)}°C
-                  <br />
-                  Winds: {forecast.wind.speed} m/s
-                </p>
-              </div>
-          ))}
+          <div className='forecastTitleContainer'>
+            <h2>Forecast:</h2>
+            <p>Note: Daily Temperatures are based on 7am measurements</p>
+          </div>
+          <div className='forecastDataContainer'>
+            {forecastData.list.filter((_, index) => index % 8 === 7).map((forecast, index) => (
+            <div className="individualForecastData">
+              <p>
+                <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
+                <br />
+                {new Date(forecast.dt * 1000).toLocaleString(undefined, { day: "2-digit", month: "2-digit" })}<br />{Math.round(forecast.main.temp)}°C
+                <br />
+                {forecast.weather[0].description}
+                <br />
+                Humidity: {forecast.main.humidity}%
+                <br />
+                Feels Like: {Math.round(forecast.main.feels_like)}°C
+                <br />
+                Winds: {forecast.wind.speed} m/s
+              </p>
+            </div>
+            ))}
+          </div>
         </>
-      )}
-    </div>
+      </div>
+    )}
 
       
     </div>
