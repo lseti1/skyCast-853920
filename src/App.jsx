@@ -25,15 +25,14 @@ function App() {
 
   return (
     <div className='main'>
-      <div className='titleCardContainer'>
-        <h1>Skycast</h1>
-      </div>
-      
-      <div className='searchBarContainer'>
+      <div className='searchBarTitleContainer'>
         <form onSubmit={handleSubmit}>
           <input className='searchBarInput' type="text" name="city" placeholder="Enter city name"/>
-          <button type="submit">Search</button>
+          <button className='searchButton' type="submit">Search</button>
         </form>
+        <div>
+          <h1 className="title">Skycast</h1>
+        </div>
       </div>
       
       <div className='weatherForDayContainer'>
@@ -41,15 +40,18 @@ function App() {
         {error && <p>Error: {error}</p>}
         {weatherData && !loading && !error && (
           <>
-            <div className='weatherForDay'>
-              <h2>Weather in {city}</h2>
-              <p>Temperature: {Math.round(weatherData.main.temp)}°C (Max: {Math.round(weatherData.main.temp_max)} & 
-                Min: {Math.round(weatherData.main.temp_min)})<br />Description: {weatherData.weather[0].description}, 
-                {weatherData.weather[0].main}</p>
-            </div>
             <div>
               <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
             </div>
+            <div className='weatherForDay'>
+              <h2>Weather in {city}</h2>
+              <p>Temperature: {Math.round(weatherData.main.temp)}°C (Max: {Math.round(weatherData.main.temp_max)} & 
+                Min: {Math.round(weatherData.main.temp_min)})<br />Description: {weatherData.weather[0].main} ({weatherData.weather[0].description})
+              </p>
+            </div>
+            {/* <div className='weatherForDay'>
+              <p>Humidity: {weatherData.main.humidity}%<br  />Feels Like: {Math.round(weatherData.main.feels_like)}<br />Winds: {Math.round(weatherData.wind.speed)}</p>
+            </div> */}
           </>
         )}
       </div>

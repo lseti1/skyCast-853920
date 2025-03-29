@@ -1,12 +1,11 @@
 body {
-    background: linear-gradient(to top, blue, rgb(5, 0, 51));
+    background: linear-gradient(to top, blue, rgb(92, 82, 183));
     width: 100vw;
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
 }
 
 .main {
@@ -16,6 +15,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: 80vw;
+    height: 100vh;
+    gap: 2%;
 
     padding: 0px;
     margin: 0px;
@@ -36,43 +37,73 @@ p {
     margin: 0px;
 }
 
-.titleCardContainer {
-    /* background-color: grey; */
-    padding: 30px;
-    padding-left: 0px;
-    margin: 0px;
-    box-sizing: border-box;
 
-    width: 80%;
-}
-
-.searchBarContainer {
+.searchBarTitleContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     /* background-color: rgb(192, 87, 87); */
     /* padding: 0px 30px; */
     margin: 0px;
     box-sizing: border-box;
-
+    padding-right: 15px;
+    
+    height: 15vh;
     width: 80%;
+}
+
+form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .searchBarInput {
     padding: 10px 5px;
     margin: 0px;
-    /* box-sizing: border-box; */
-    width: 30%;
+    box-sizing: border-box;
+    font-size: 2.5vh;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    width: 50%;
+    height: 40%;
+}
+
+.searchButton {
+    margin-left: 2%;
+    width: 20%;
+    height: 40%;
+    font-size: 2vh;
+
+    background-color: rgba(81, 40, 171, 0.584);
+    transition: 0.4s;
+}
+
+.searchButton:hover {
+    background-color: rgba(82, 40, 171, 0.83);
+}
+
+.title {
+    text-shadow: 0px 0px 5px black;
 }
 
 .weatherForDayContainer {
     display: flex;
-    /* justify-content: space-between; */
-    /* background-color: rgb(228, 132, 132); */
+    justify-content: flex-start;
     box-sizing: border-box;
-    /* padding: 100px 0px; */
     width: 80%;
+    gap: 3%;
+    background-color: rgb(46, 37, 128);
+    box-shadow: 0px 0px 5px black;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 15px;
 }
 
 .weatherForDayIcon {
-    height: 12vw;   
+    height: 25vh;   
     /* background-color: white; */
 }
 
@@ -81,17 +112,18 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    /* background-color: rgb(95, 95, 95); */
+    font-size: 3vh;
 }
 
 .forecastContainer {
-    background-color: rgb(5, 0, 51);
+    background-color: rgb(46, 37, 128);
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 80%;
-    /* height: 40vh; */
-    box-shadow: 0px 0px 20px white;
+    height: 50vh;
+    gap: 5%;
+    box-shadow: 0px 0px 5px black;
     border-radius: 30px;
     box-sizing: border-box;
     padding: 15px;
@@ -112,7 +144,6 @@ p {
     gap: 10px;
 }
 
-
 .individualForecastData {
     display: flex;
     /* flex-direction: row; */
@@ -125,10 +156,8 @@ p {
     width: 50%;
     font-size: 2vh;
     text-align: center;
-    background: linear-gradient(to top, blue, rgb(223, 220, 255));
+    background: linear-gradient(to top, blue, rgb(24, 16, 117));
 }
-
-
 
 .forecastIcons {
     height: 15vh;
