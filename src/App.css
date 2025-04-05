@@ -1,11 +1,13 @@
 body {
-    background: linear-gradient(to top, blue, rgb(92, 82, 183));
+    background: linear-gradient(to top, blue, rgb(31, 28, 57));
+    /* background-color: black; */
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    
 }
 
 .main {
@@ -22,21 +24,16 @@ body {
     margin: 0px;
 }
 
-h1 {
+h1, h2, p {
     padding: 0px;
     margin: 0px;
+    font-weight: 300;
 }
 
 h2 {
     padding: 0px;
     margin: 0px;
 }
-
-p {
-    padding: 0px;
-    margin: 0px;
-}
-
 
 .searchBarTitleContainer {
     display: flex;
@@ -91,6 +88,7 @@ form {
 
 .weatherForDayContainer {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     box-sizing: border-box;
     width: 80%;
@@ -99,20 +97,44 @@ form {
     box-shadow: 0px 0px 5px black;
     border-radius: 30px;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 30px;
+}
+
+.titleForDay {
+    text-indent: 50px;
+}
+
+.contentForDay {
+    /* background-color: grey; */
+    display: flex;
 }
 
 .weatherForDayIcon {
-    height: 25vh;   
+    height: 28vh;   
     /* background-color: white; */
 }
 
-.weatherForDay {
+.leftSideForDay {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: 1px solid grey;
+    width: 50%;
+}
+
+.leftSideDayInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.rightSideForDay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 3vh;
+    width: 50%;
 }
 
 .forecastContainer {
