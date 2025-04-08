@@ -45,7 +45,6 @@ function App() {
       <div className='weatherForDayContainer'>
         <div className='titleForDay'>
           <h1>{city}</h1>
-          <h2>{months[currentMonth]} {currentDay}</h2>
         </div>
         <div className='contentForDay'>
           {loading && <p>Loading...</p>}
@@ -55,14 +54,18 @@ function App() {
               <div className='leftSideForDay'>
                 <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <div className='leftSideDayInfo'>
-                  <h1>{Math.round(weatherData.main.temp)}°C</h1>
-                  <h2>({weatherData.weather[0].description})</h2>
+                  <h2>{Math.round(weatherData.main.temp)}°C</h2>
+                  <p>({weatherData.weather[0].description})</p>
                 </div>
               </div>
               <div className='rightSideForDay'>
-                <p>Temperature: (Max: {Math.round(weatherData.main.temp_max)} & 
-                  Min: {Math.round(weatherData.main.temp_min)})<br />Description: {weatherData.weather[0].main} ({weatherData.weather[0].description})
-                </p>
+                <p>Max: {Math.round(weatherData.main.temp_max)}°C</p>
+                <p>Min: {Math.round(weatherData.main.temp_min)}°C</p>
+                <p>Feels Like: {Math.round(weatherData.main.feels_like)}°C</p>
+                <p>Humidity: {weatherData.main.humidity}%</p>
+                <p>Winds: {weatherData.wind.speed}m/s</p>
+                <p>Cloud Cover: {weatherData.clouds.all}%</p>
+                
               </div>
               {/* <div className='weatherForDay'>
                 <p>Humidity: {weatherData.main.humidity}%<br  />Feels Like: {Math.round(weatherData.main.feels_like)}<br />Winds: {Math.round(weatherData.wind.speed)}</p>

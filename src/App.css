@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to top, blue, rgb(31, 28, 57));
+    background: linear-gradient(to top, blue, rgb(130, 123, 188));
     /* background-color: black; */
     width: 100vw;
     height: 100%;
@@ -90,26 +90,24 @@ form {
     justify-content: flex-start;
     box-sizing: border-box;
     width: 63%;
-    /* height: 20%; */
+    height: 40%;
     gap: 3%;
-    background-color: rgb(46, 37, 128);
+    background-color: rgb(63, 51, 173);
     box-shadow: 0px 0px 5px black;
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 10px;
+    border-radius: 20px;    
+    padding: 30px;
 
     position: absolute;
     left: 3%;
     top: 15%;
 }
 
-.titleForDay {
-    text-indent: 50px;
-}
-
 .contentForDay {
     /* background-color: grey; */
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%:
 }
 
 .weatherForDayIcon {
@@ -121,7 +119,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid grey;
+    border-right: 1px solid rgb(255, 255, 255);
     font-size: 1.5vh;
     width: 50%;
 }
@@ -131,18 +129,24 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2.5vh;
 }
 
 .rightSideForDay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 5%;
+    font-size: 3vh;
+
     width: 50%;
+    height: 100%;
+    text-align: right;
+    /* background-color: grey; */
 }
 
 .forecastContainer {
-    background-color: rgb(46, 37, 128);
+    background-color: rgb(63, 51, 173);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
