@@ -24,29 +24,27 @@ body {
     margin: 0px;
 }
 
-h1, h2, p {
+h1, h2, h3, p {
     padding: 0px;
     margin: 0px;
     font-weight: 300;
 }
 
-h2 {
-    padding: 0px;
-    margin: 0px;
-}
-
 .searchBarTitleContainer {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     /* background-color: rgb(192, 87, 87); */
     /* padding: 0px 30px; */
     margin: 0px;
     box-sizing: border-box;
-    padding-right: 15px;
-    
-    height: 15vh;
-    width: 80%;
+    padding-right: 30px;
+    padding-left: 0px;
+    width: 63%;
+
+    position: absolute;
+    top: 5%;
+    left: 3%;
 }
 
 form {
@@ -91,13 +89,18 @@ form {
     flex-direction: column;
     justify-content: flex-start;
     box-sizing: border-box;
-    width: 80%;
+    width: 63%;
+    /* height: 20%; */
     gap: 3%;
     background-color: rgb(46, 37, 128);
     box-shadow: 0px 0px 5px black;
-    border-radius: 30px;
+    border-radius: 20px;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 10px;
+
+    position: absolute;
+    left: 3%;
+    top: 15%;
 }
 
 .titleForDay {
@@ -110,15 +113,16 @@ form {
 }
 
 .weatherForDayIcon {
-    height: 28vh;   
+    height: 25vh;   
     /* background-color: white; */
 }
 
 .leftSideForDay {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     border-right: 1px solid grey;
+    font-size: 1.5vh;
     width: 50%;
 }
 
@@ -133,7 +137,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3vh;
+    font-size: 2.5vh;
     width: 50%;
 }
 
@@ -141,14 +145,18 @@ form {
     background-color: rgb(46, 37, 128);
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    width: 80%;
-    height: 50vh;
-    gap: 5%;
+    width: 30%;
+    height: 90%;
     box-shadow: 0px 0px 5px black;
-    border-radius: 30px;
+    border-radius: 20px;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 5px 15px;
+
+    position: absolute;
+    right: 3%;
+    top: 5%;
 
 }
 
@@ -156,33 +164,37 @@ form {
     /* background-color: rgb(81, 0, 255); */
     text-align: left;
     width: 100%;
+    font-size: 3vh;
     padding-bottom: 1vh;
+    padding-left: 3vh;
 }
 
 .forecastDataContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
 
     gap: 10px;
 }
 
 .individualForecastData {
     display: flex;
-    /* flex-direction: row; */
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     border-radius: 20px;
     box-shadow: 0px 0px 5px rgb(255, 255, 255);
     box-sizing: border-box;
     /* padding: 10px; */
-    width: 50%;
     font-size: 2vh;
     text-align: center;
-    background: linear-gradient(to top, blue, rgb(24, 16, 117));
+    height: 18%;
+    /* background: linear-gradient(to top, blue, rgb(24, 16, 117)); */
 }
 
 .forecastIcons {
-    height: 15vh;
+    height: 12vh;
     width: auto;
 
     /* background-color: white; */
