@@ -29,14 +29,27 @@ function App() {
     setCity(inputCity);
   };
 
-  function formatTime(timestamp) {
+  function formatDateTime(timestamp) {
     const date = new Date(timestamp * 1000);
-    let hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12 || 12; // 0 becomes 12
-    return `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
+  
+    const formattedDate = date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
+    }); // e.g. "Apr 9"
+  
+    const formattedTime = date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      hour12: true
+    }); // e.g. "4 PM"
+  
+    return (
+      <>
+        {formattedDate}<br />
+        {formattedTime}
+      </>
+    );
   }
+  
 
 
   return (
@@ -85,11 +98,10 @@ function App() {
         </div>
       </div>
       
-
       
+      <div className="dailyForecast">
       {forecastData && !loading && !error && (
-      <> 
-        <div className="dailyForecast">
+        <>
           <h1>3-Hourly Forecast:</h1>
           <div className="dailyForecastDataContainer">
           {forecastData.list.filter((_, index) => index < 8).map((forecast, index) => (
@@ -97,17 +109,23 @@ function App() {
               <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 {Math.round(forecast.main.temp)}°C<br  />
-                {formatTime(forecast.dt)}
+                {formatDateTime(forecast.dt)}
               </h3>
             </div>
-          ))} 
+            ))}
           </div>
-        </div>
+        </>
+      )} 
+      </div>
+
+
         <div className="forecastContainer">
+        {forecastData && !loading && !error && (
           <>
             <div className='forecastTitleContainer'>
               <h2>Weekly Forecast:</h2>
             </div>
+
             <div className='forecastDataContainer'>
               {forecastData.list.filter((_, index) => index % 8 === 7).map((forecast, index) => (
               <div className="individualForecastData">
@@ -123,9 +141,9 @@ function App() {
             </div>
             <p>Note: Temperatures measured at </p>
           </>
-        </div>
-      </> 
-    )}
+        )}
+    </div>
+
     </div>
   );
 };
