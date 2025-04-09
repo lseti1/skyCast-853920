@@ -104,7 +104,7 @@ function App() {
         <>
           <h1>3-Hourly Forecast:</h1>
           <div className="dailyForecastDataContainer">
-          {forecastData.list.filter((_, index) => index < 8).map((forecast, index) => (
+          {forecastData.list.filter((_, index) => index).map((forecast, index) => (
             <div className="individualDailyForecastData"> 
               <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
