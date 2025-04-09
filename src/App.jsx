@@ -65,10 +65,13 @@ function App() {
       </div>
       
       <div className='weatherForDayContainer'>
+        {weatherData && !loading && !error && (
         <div className='titleForDay'>
           <h1>{city}</h1>
-          <h1>{months[currentMonth]} {currentDay}</h1>
+          <h2>{formatDateTime(weatherData.dt)}</h2>
         </div>
+        )}
+
         <div className='contentForDay'>
           {loading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
@@ -133,7 +136,7 @@ function App() {
                 <p>
                   <h2>{new Date(forecast.dt * 1000).toLocaleString(undefined, { day: "2-digit", month: "2-digit" })}, {Math.round(forecast.main.temp)}°C</h2>
                   Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br  />
-                  Humidity: {forecast.main.humidity}%
+                  Humidity: {forecast.main.humidity}%, 
                   Winds: {forecast.wind.speed} m/s
                 </p>
               </div>

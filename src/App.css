@@ -92,7 +92,7 @@ form {
     width: 63%;
     height: 40%;
     gap: 3%;
-    background-color: rgb(63, 51, 173);
+    background-color: rgba(63, 51, 173, 0.5);
     box-shadow: 0px 0px 5px black;
     border-radius: 20px;    
     padding: 30px;
@@ -104,7 +104,7 @@ form {
 
 .titleForDay {
     display: flex;
-    justify-content: space-between;
+    gap: 5%;
 }
 
 .contentForDay {
@@ -152,7 +152,7 @@ form {
 }
 
 .forecastContainer {
-    background-color: rgb(63, 51, 173);
+    background-color: rgb(63, 51, 173, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -204,7 +204,7 @@ form {
 }
 
 .dailyForecast {
-    background-color: rgb(63, 51, 173);
+    background-color: rgb(63, 51, 173, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
