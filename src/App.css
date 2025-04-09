@@ -136,7 +136,6 @@ form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    gap: 5%;
     font-size: 3vh;
 
     width: 50%;
@@ -195,6 +194,36 @@ form {
     text-align: center;
     height: 18%;
     /* background: linear-gradient(to top, blue, rgb(24, 16, 117)); */
+}
+
+.dailyForecast {
+    background-color: rgb(63, 51, 173);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 63%;
+    height: 37%;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 5px 15px;
+
+    position: absolute;
+    left: 3%;
+    bottom: 5%;
+}
+
+.dailyForecastDataContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: grey; */
+    height: 100%;
+}
+
+.individualDailyForecastData {
+    text-align: center;
 }
 
 .forecastIcons {
