@@ -102,6 +102,11 @@ form {
     top: 15%;
 }
 
+.titleForDay {
+    display: flex;
+    justify-content: space-between;
+}
+
 .contentForDay {
     /* background-color: grey; */
     display: flex;
@@ -138,6 +143,8 @@ form {
     grid-template-rows: repeat(3, auto);
     font-size: 3vh;
 
+    align-items: center;
+    
     width: 50%;
     height: 100%;
     text-align: right;
@@ -207,7 +214,7 @@ form {
     box-shadow: 0px 0px 5px black;
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 5px 15px;
+    padding: 25px;
 
     position: absolute;
     left: 3%;

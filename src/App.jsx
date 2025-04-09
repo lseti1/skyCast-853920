@@ -29,6 +29,15 @@ function App() {
     setCity(inputCity);
   };
 
+  function formatTime(timestamp) {
+    const date = new Date(timestamp * 1000);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // 0 becomes 12
+    return `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
+  }
+
 
   return (
     <div className='main'>
@@ -45,6 +54,7 @@ function App() {
       <div className='weatherForDayContainer'>
         <div className='titleForDay'>
           <h1>{city}</h1>
+          <h1>{months[currentMonth]} {currentDay}</h1>
         </div>
         <div className='contentForDay'>
           {loading && <p>Loading...</p>}
@@ -80,14 +90,15 @@ function App() {
       {forecastData && !loading && !error && (
       <> 
         <div className="dailyForecast">
-          <h2>3-Hourly Forecast:</h2>
+          <h1>3-Hourly Forecast:</h1>
           <div className="dailyForecastDataContainer">
           {forecastData.list.filter((_, index) => index < 8).map((forecast, index) => (
             <div className="individualDailyForecastData"> 
-              <p>
+              <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 {Math.round(forecast.main.temp)}°C<br  />
-              </p>
+                {formatTime(forecast.dt)}
+              </h3>
             </div>
           ))} 
           </div>
@@ -110,7 +121,7 @@ function App() {
               </div>
               ))}
             </div>
-            <p>Note: Temperatures measured at 7am</p>
+            <p>Note: Temperatures measured at </p>
           </>
         </div>
       </> 
