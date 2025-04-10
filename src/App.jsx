@@ -49,7 +49,7 @@ function App() {
     <div className='main'>
       <div className='searchBarTitleContainer'>
         <form onSubmit={handleSubmit}>
-          <input className='searchBarInput' type="text" name="city" placeholder="Enter city name"/>
+          <input className='searchBarInput' type="text" name="city" placeholder="Enter City (e.g. Brisbane)"/>
           <button className='searchButton' type="submit">Search</button>
         </form>
         <div>
