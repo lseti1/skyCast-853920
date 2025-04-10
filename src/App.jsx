@@ -37,6 +37,10 @@ function App() {
     return new Date(timestamp * 1000).toLocaleDateString('en-US', {day: "numeric", month: "short"});
   }
 
+  function formatDateToDay(timestamp) {
+    return new Date(timestamp * 1000).toLocaleDateString('en-US', {weekday: "long"});
+  }
+
   function formatTime(timestamp) {
     return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: 'numeric', hour12: true});
   }
@@ -104,9 +108,11 @@ function App() {
               <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 {Math.round(forecast.main.temp)}°C<br  />
-                {formatDate(forecast.dt)}<br  />
                 {formatTime(forecast.dt)}
               </h3>
+              <p className='dailyForecastDates'>
+                {formatDate(forecast.dt)}
+              </p>
             </div>
             ))}
           </div>
@@ -128,7 +134,7 @@ function App() {
               <div className="individualForecastData">
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <p>
-                  <h2>{formatDate(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
+                  <h2>{formatDateToDay(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
                   Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br  />
                   Humidity: {forecast.main.humidity}%, 
                   Winds: {forecast.wind.speed} m/s

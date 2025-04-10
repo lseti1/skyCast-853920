@@ -245,6 +245,10 @@ form {
     text-align: center;
 }
 
+.dailyForecastDates {
+    color: rgba(255, 255, 255, 0.617);
+}
+
 .forecastIcons {
     height: 12vh;
     width: auto;
