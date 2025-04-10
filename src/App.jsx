@@ -139,8 +139,6 @@ function App() {
                 <p>
                   <h2>{formatDateToDay(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
                   Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br  />
-                  Humidity: {forecast.main.humidity}%, 
-                  Winds: {forecast.wind.speed} m/s
                 </p>
               </div>
               ))}
