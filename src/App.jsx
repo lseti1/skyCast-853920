@@ -29,25 +29,16 @@ function App() {
     setCity(inputCity);
   };
 
-  function formatDateTime(timestamp) {
-    const date = new Date(timestamp * 1000);
-  
-    const formattedDate = date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric'
-    }); // e.g. "Apr 9"
-  
-    const formattedTime = date.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      hour12: true
-    }); // e.g. "4 PM"
-  
-    return (
-      <>
-        {formattedDate}<br />
-        {formattedTime}
-      </>
-    );
+  function formatDate(timestamp) {
+    return new Date(timestamp * 1000).toLocaleDateString('en-US', {day: "2-digit", month: "2-digit"});
+  }
+
+  function formatDateToWords(timestamp) {
+    return new Date(timestamp * 1000).toLocaleDateString('en-US', {day: "numeric", month: "short"});
+  }
+
+  function formatTime(timestamp) {
+    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: 'numeric', hour12: true});
   }
 
   return (
@@ -66,7 +57,7 @@ function App() {
         {weatherData && !loading && !error && (
         <div className='titleForDay'>
           <h1>{city}</h1>
-          <h2>{formatDateTime(weatherData.dt)}</h2>
+          <h2>{formatDateToWords(weatherData.dt)}<br />{formatTime(weatherData.dt)}</h2>
         </div>
         )}
 
@@ -113,7 +104,8 @@ function App() {
               <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 {Math.round(forecast.main.temp)}°C<br  />
-                {formatDateTime(forecast.dt)}
+                {formatDate(forecast.dt)}<br  />
+                {formatTime(forecast.dt)}
               </h3>
             </div>
             ))}
@@ -136,15 +128,16 @@ function App() {
               <div className="individualForecastData">
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <p>
-                  <h2>{new Date(forecast.dt * 1000).toLocaleString(undefined, { day: "2-digit", month: "2-digit" })}, {Math.round(forecast.main.temp)}°C</h2>
+                  <h2>{formatDate(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
                   Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br  />
                   Humidity: {forecast.main.humidity}%, 
                   Winds: {forecast.wind.speed} m/s
                 </p>
               </div>
               ))}
+              <p>Note: Temperatures measured at</p>
             </div>
-            <p>Note: Temperatures measured at </p>
+            
           </>
         ) : (
           <h2>No Weekly Forecast To Show</h2>
