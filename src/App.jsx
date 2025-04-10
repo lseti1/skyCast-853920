@@ -73,7 +73,7 @@ function App() {
         <div className='contentForDay'>
           {loading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
-          {weatherData && !loading && !error && (
+          {weatherData && !loading && !error ? (
             <>
               <div className='leftSideForDay'>
                 <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
@@ -95,13 +95,15 @@ function App() {
                 <p>Humidity: {weatherData.main.humidity}%<br  />Feels Like: {Math.round(weatherData.main.feels_like)}<br />Winds: {Math.round(weatherData.wind.speed)}</p>
               </div> */}
             </>
+          ) : (
+            <h2>No Weather To Show for Today (Enter A City In Search Bar)</h2>
           )}
         </div>
       </div>
       
       
       <div className="dailyForecast">
-      {forecastData && !loading && !error && (
+      {forecastData && !loading && !error ? (
         <>
           <h1>3-Hourly Forecast</h1>
           <p>Forecast for next 48 hours</p>
@@ -117,11 +119,13 @@ function App() {
             ))}
           </div>
         </>
+      ) : (
+        <h2>No Daily Forecast To Show</h2>
       )} 
       </div>
 
         <div className="forecastContainer">
-        {forecastData && !loading && !error && (
+        {forecastData && !loading && !error ? (
           <>
             <div className='forecastTitleContainer'>
               <h1>Weekly Forecast</h1>
@@ -142,6 +146,8 @@ function App() {
             </div>
             <p>Note: Temperatures measured at </p>
           </>
+        ) : (
+          <h2>No Weekly Forecast To Show</h2>
         )}
     </div>
 
