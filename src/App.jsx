@@ -49,8 +49,6 @@ function App() {
       </>
     );
   }
-  
-
 
   return (
     <div className='main'>
@@ -81,7 +79,7 @@ function App() {
                 <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <div className='leftSideDayInfo'>
                   <h2>{Math.round(weatherData.main.temp)}°C</h2>
-                  <p>({weatherData.weather[0].description})</p>
+                  <h2>({weatherData.weather[0].description})</h2>
                 </div>
               </div>
               <div className='rightSideForDay'>
@@ -105,9 +103,10 @@ function App() {
       <div className="dailyForecast">
       {forecastData && !loading && !error && (
         <>
-          <h1>3-Hourly Forecast:</h1>
+          <h1>3-Hourly Forecast</h1>
+          <p>Forecast for next 48 hours</p>
           <div className="dailyForecastDataContainer">
-          {forecastData.list.filter((_, index) => index).map((forecast, index) => (
+          {forecastData.list.filter((_, index) => index < 17).map((forecast, index) => (
             <div className="individualDailyForecastData"> 
               <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
@@ -121,12 +120,11 @@ function App() {
       )} 
       </div>
 
-
         <div className="forecastContainer">
         {forecastData && !loading && !error && (
           <>
             <div className='forecastTitleContainer'>
-              <h2>Weekly Forecast:</h2>
+              <h1>Weekly Forecast</h1>
             </div>
 
             <div className='forecastDataContainer'>
