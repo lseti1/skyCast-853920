@@ -121,8 +121,8 @@ function App() {
           <>
             <div className='forecastTitleContainer'>
               <h1>Weekly Forecast</h1>
+              <p>Note: Temperatures measured at {formatTime(weatherData.dt)}</p>
             </div>
-
             <div className='forecastDataContainer'>
               {forecastData.list.filter((_, index) => index % 8 === 7).map((forecast, index) => (
               <div className="individualForecastData">
@@ -135,7 +135,6 @@ function App() {
                 </p>
               </div>
               ))}
-              <p>Note: Temperatures measured at</p>
             </div>
             
           </>
