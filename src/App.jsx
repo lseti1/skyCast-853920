@@ -42,14 +42,18 @@ function App() {
   }
 
   function formatTime(timestamp) {
-    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: 'numeric', hour12: true});
+    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: "numeric", hour12: true});
+  }
+
+  function formatTimeToHoursMinutes(timestamp) {
+    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: "2-digit", minute: "2-digit", hour12: true});
   }
 
   return (
     <div className='main'>
       <div className='searchBarTitleContainer'>
         <form onSubmit={handleSubmit}>
-          <input className='searchBarInput' type="text" name="city" placeholder="Enter City (e.g. Brisbane)"/>
+          <input className='searchBarInput' type="text" name="city" placeholder="Enter City (e.g."/>
           <button className='searchButton' type="submit">Search</button>
         </form>
         <div>
@@ -82,9 +86,8 @@ function App() {
                 <p>Min: {Math.round(weatherData.main.temp_min)}°C</p>
                 <p>Feels Like: {Math.round(weatherData.main.feels_like)}°C</p>
                 <p>Humidity: {weatherData.main.humidity}%</p>
-                <p>Winds: {weatherData.wind.speed}m/s</p>
-                <p>Cloud Cover: {weatherData.clouds.all}%</p>
-                
+                <p>Sunrise: {formatTimeToHoursMinutes(weatherData.sys.sunrise)}</p>
+                <p>Sunset: {formatTimeToHoursMinutes(weatherData.sys.sunset)}</p>
               </div>
               {/* <div className='weatherForDay'>
                 <p>Humidity: {weatherData.main.humidity}%<br  />Feels Like: {Math.round(weatherData.main.feels_like)}<br />Winds: {Math.round(weatherData.wind.speed)}</p>
