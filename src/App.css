@@ -95,7 +95,9 @@ form {
     background-color: rgba(63, 51, 173, 0.5);
     box-shadow: 0px 0px 5px black;
     border-radius: 20px;    
-    padding: 30px;
+    padding: 20px;
+    padding-bottom: 5px;
+
 
     position: absolute;
     left: 3%;
@@ -124,7 +126,7 @@ form {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-right: 1px solid rgb(255, 255, 255);
+    border-right: 1px solid rgba(255, 255, 255, 0.224);
     font-size: 1.5vh;
     
     width: 50%;
@@ -214,7 +216,8 @@ form {
     box-shadow: 0px 0px 5px black;
     border-radius: 20px;
     box-sizing: border-box;
-    padding: 25px;
+    padding: 20px;
+    padding-bottom: 5px;
 
     position: absolute;
     left: 3%;
