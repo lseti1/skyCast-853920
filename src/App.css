@@ -255,23 +255,28 @@ button:hover {
     color: rgba(255, 255, 255, 0.617);
 }
 
-.dailyForecastSelection {
+.dailyForecastSelectionContainer {
     display: flex;
-    gap: 1%;
 
     position: absolute;
     top: 25px;
     right: 50px;
 }
 
-.dailyForecastButton {
-    /* background-color: rgba(255, 255, 255, 0.149); */
+select {
+    background-color: rgba(47, 46, 51, 0.5);
     width: 60px;
     height: 50px;
+    font-size: 2.2vh;
+    border: none;
+    border-radius: 10px;
+    padding: 0px 10px;
     box-sizing: border-box;
+
+    transition-duration: 0.4s;
 }
 
-.active {
+select:hover {
     background-color: rgb(47, 46, 51);
 }
 

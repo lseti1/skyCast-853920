@@ -118,10 +118,12 @@ function App() {
         <>
           <h1>3-Hourly Forecast</h1>
           <p>Forecast for next 48 hours</p>
-          <div className='dailyForecastSelection'>
-            <button className={dailyForecastType=="Temp" ? "dailyForecastButton active" : "dailyForecastButton"} onClick={() => setDailyForecastType("Temp")}>°C</button>
-            <button className={dailyForecastType=="Wind" ? "dailyForecastButton active" : "dailyForecastButton"} onClick={() => setDailyForecastType("Wind")}>🌀</button>
-            <button className={dailyForecastType=="Humidity" ? "dailyForecastButton active" : "dailyForecastButton"} onClick={() => setDailyForecastType("Humidity")}>💧</button>
+          <div className='dailyForecastSelectionContainer'>
+            <select className='dailyForecastSelector' value={dailyForecastType} onChange={(e) => setDailyForecastType(e.target.value)}>
+              <option value="Temp">°C</option>
+              <option value="Wind">🌀</option>
+              <option value="Humidity">💧</option>
+            </select>
           </div>
           <div className="dailyForecastDataContainer">
           {forecastData.list.filter((_, index) => index < 17).map((forecast, index) => (
