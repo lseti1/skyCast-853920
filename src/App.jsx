@@ -21,6 +21,21 @@ function App() {
   const loading = weatherLoading || forecastLoading;
   const error = weatherError || forecastError;  
 
+  const [dailyForecastType, setDailyForecastType] = useState("Temp");
+
+  function getForecastTypeValues(type, forecast) {
+    switch(type) {
+      case 'Temp':
+        return `${Math.round(forecast.main.temp)}°C`
+      case 'Wind':
+        return `${Math.round(forecast.wind.speed)} m/s`
+      case 'Humidity':
+        return `${forecast.main.humidity}%`
+      default:
+        return 'N/A';
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(e.target.city.value);
@@ -56,9 +71,7 @@ function App() {
           <input className='searchBarInput' type="text" name="city" placeholder="Enter City (e.g. Brisbane)"/>
           <button className='searchButton' type="submit">Search</button>
         </form>
-        <div>
-          <h1 className="title">Skycast</h1>
-        </div>
+        <h1 className="title">Skycast</h1>
       </div>
       
       <div className='weatherForDayContainer'>
@@ -105,13 +118,20 @@ function App() {
         <>
           <h1>3-Hourly Forecast</h1>
           <p>Forecast for next 48 hours</p>
+          <div className='dailyForecastSelection'>
+            <button className={dailyForecastType=="Temp" ? "dailyForecastButton active" : "dailyForecastButton"} onClick={() => setDailyForecastType("Temp")}>°C</button>
+            <button className={dailyForecastType=="Wind" ? "dailyForecastButton active" : "dailyForecastButton"} onClick={() => setDailyForecastType("Wind")}>🌀</button>
+            <button className={dailyForecastType=="Humidity" ? "dailyForecastButton active" : "dailyForecastButton"} onClick={() => setDailyForecastType("Humidity")}>💧</button>
+          </div>
           <div className="dailyForecastDataContainer">
           {forecastData.list.filter((_, index) => index < 17).map((forecast, index) => (
             <div className="individualDailyForecastData"> 
               <h3>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
-                {Math.round(forecast.main.temp)}°C<br  />
+                {/* {Math.round(forecast.main.temp)}°C<br  /> */}
+                {getForecastTypeValues(dailyForecastType, forecast)}<br  />
                 {formatTime(forecast.dt)}
+                
               </h3>
               <p className='dailyForecastDates'>
                 {formatDate(forecast.dt)}

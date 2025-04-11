@@ -34,13 +34,12 @@ h1, h2, h3, p {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(192, 87, 87); */
-    /* padding: 0px 30px; */
     margin: 0px;
     box-sizing: border-box;
-    padding-right: 30px;
-    padding-left: 0px;
+    padding-right: 20px;
     width: 63%;
+    gap: 5%;
+    /* background-color: grey; */
 
     position: absolute;
     top: 5%;
@@ -67,7 +66,7 @@ form {
     height: 40%;
 }
 
-.searchButton {
+button {
     margin-left: 2%;
     width: 20%;
     height: 100%;
@@ -75,16 +74,19 @@ form {
     box-sizing: border-box;
     padding: 12px;
 
-    background-color:  rgba(47, 46, 51, 0.5);
+    background-color: rgba(47, 46, 51, 0.5);
     transition: 0.4s;
 }
 
-.searchButton:hover {
-    background-color:  rgb(47, 46, 51);
+button:hover {
+    background-color: rgb(47, 46, 51);
 }
 
 .title {
     text-shadow: 0px 0px 5px black;
+    font-size: 8vh;
+    font-weight: 500;
+
 }
 
 .weatherForDayContainer {
@@ -169,6 +171,7 @@ form {
     border-radius: 20px;
     box-sizing: border-box;
     padding: 15px;
+    padding-top: 10px;
 
     position: absolute;
     right: 3%;
@@ -250,6 +253,26 @@ form {
 
 .dailyForecastDates {
     color: rgba(255, 255, 255, 0.617);
+}
+
+.dailyForecastSelection {
+    display: flex;
+    gap: 1%;
+
+    position: absolute;
+    top: 25px;
+    right: 50px;
+}
+
+.dailyForecastButton {
+    /* background-color: rgba(255, 255, 255, 0.149); */
+    width: 60px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.active {
+    background-color: rgb(47, 46, 51);
 }
 
 .forecastIcons {
