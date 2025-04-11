@@ -31,6 +31,8 @@ function App() {
         return `${Math.round(forecast.wind.speed)} m/s`
       case 'Humidity':
         return `${forecast.main.humidity}%`
+      case 'Rain':
+        return `${forecast.rain?.["3h"] ?? 0} mm`
       default:
         return 'N/A';
     }
@@ -123,6 +125,7 @@ function App() {
               <option value="Temp">°C</option>
               <option value="Wind">🌀</option>
               <option value="Humidity">💧</option>
+              <option value="Rain">🌧️</option>
             </select>
           </div>
           <div className="dailyForecastDataContainer">
