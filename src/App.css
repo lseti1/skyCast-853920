@@ -73,7 +73,7 @@ form {
     height: 100%;
     font-size: 2vh;
     box-sizing: border-box;
-    padding: 15px;
+    padding: 12px;
 
     background-color:  rgba(47, 46, 51, 0.5);
     transition: 0.4s;
