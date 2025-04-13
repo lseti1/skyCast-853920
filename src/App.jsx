@@ -15,11 +15,7 @@ function App() {
   const currentDay = currentDate.getDate();
   const currentMonth = currentDate.getMonth();
 
-  const {forecastData, forecastLoading, forecastError } = useWeather(city, APIkey);
-  const {weatherData, weatherLoading, weatherError } = useWeather(city, APIkey);
-
-  const loading = weatherLoading || forecastLoading;
-  const error = weatherError || forecastError;  
+  const {weatherData, forecastData, loading, error} = useWeather(city, APIkey);
 
   const [dailyForecastType, setDailyForecastType] = useState("Temp");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -43,7 +39,6 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target.city.value);
     const inputCity = e.target.city.value;
     console.log("City Submitted: ", inputCity);
     setCity(inputCity);
@@ -113,9 +108,9 @@ function App() {
         )}
 
         <div className='contentForDay'>
-          {loading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
-          {weatherData && !loading && !error ? (
+          {loading && (<h1>Loading...</h1>)}
+          {error && (<h1>Error: {error}</h1>)}
+          {weatherData && !loading && !error && (
             <>
               <div className='leftSideForDay'>
                 <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
@@ -133,14 +128,12 @@ function App() {
                 <p>Sunset: {formatTimeToHoursMinutes(weatherData.sys.sunset)}</p>
               </div>
             </>
-          ) : (
-            <h2>No Weather To Show for Today (Enter A City In Search Bar)</h2>
           )}
         </div>
       </div>
       
       <div className="dailyForecast">
-      {forecastData && !loading && !error ? (
+      {forecastData && !loading && !error && (
         <>
           <h1>3-Hourly Forecast</h1>
           <p>Forecast for next 48 hours</p>
@@ -168,12 +161,10 @@ function App() {
             ))}
           </div>
         </>
-      ) : (
-        <h2>No Daily Forecast To Show</h2>
       )} 
       </div>
         <div className="forecastContainer">
-        {forecastData && !loading && !error ? (
+        {forecastData && !loading && !error && (
           <>
             <div className='forecastTitleContainer'>
               <h1>Weekly Forecast</h1>
@@ -191,8 +182,6 @@ function App() {
               ))}
             </div>
           </>
-        ) : (
-          <h2>No Weekly Forecast To Show</h2>
         )}
       </div>
       {isModalVisible && (

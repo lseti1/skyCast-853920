@@ -10,19 +10,23 @@ export const useWeather = (city, APIKey, url) => {
         const fetchWeatherData = async () => { 
             setLoading(true);
             setError(null);
+            setWeatherData(null); 
+            setForecastData(null);
 
             try {
                 const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=metric`);
                 const weather = await weatherResponse.json();
-                setWeatherData(weather);
+
+                if (weather.cod === "404") { // Handle API errors 
+                    setError("City not found. Try again.");
+                    return;
+                }  
 
                 const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=metric`);
                 const forecast = await forecastResponse.json();
-                setForecastData(forecast);
 
-                if (data.cod === "404") { // Handle API errors 
-                    setError("City not found. Try again.");
-                }  
+                setWeatherData(weather);
+                setForecastData(forecast);
             } catch (err) {
                 console.log("Error Occurred:", err);
                 setError(err.message || "Something went wrong");

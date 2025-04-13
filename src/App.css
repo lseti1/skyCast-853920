@@ -307,7 +307,7 @@ select:hover {
     padding: 20px;
     box-sizing: border-box;
     z-index: 1000;
-    font-size: 2.5vh;
+    
     box-shadow: 0px 0px 15px white;
 
     position: absolute;
@@ -330,6 +330,7 @@ select:hover {
 
   .modalForecast {
     display: flex;
+    font-size: 2.5vh;
   }
 
   .selectedForecast {
