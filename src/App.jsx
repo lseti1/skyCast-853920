@@ -132,9 +132,6 @@ function App() {
                 <p>Sunrise: {formatTimeToHoursMinutes(weatherData.sys.sunrise)}</p>
                 <p>Sunset: {formatTimeToHoursMinutes(weatherData.sys.sunset)}</p>
               </div>
-              {/* <div className='weatherForDay'>
-                <p>Humidity: {weatherData.main.humidity}%<br  />Feels Like: {Math.round(weatherData.main.feels_like)}<br />Winds: {Math.round(weatherData.wind.speed)}</p>
-              </div> */}
             </>
           ) : (
             <h2>No Weather To Show for Today (Enter A City In Search Bar)</h2>
