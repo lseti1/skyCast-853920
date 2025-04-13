@@ -18,7 +18,7 @@ export const useWeather = (city, APIKey, url) => {
                 const weather = await weatherResponse.json();
 
                 if (weather.cod === "404") { // Handle API errors 
-                    setError("City not found. Try again.");
+                    setError("No city found, please try again.");
                     return;
                 }  
 

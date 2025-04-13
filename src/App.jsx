@@ -109,7 +109,7 @@ function App() {
 
         <div className='contentForDay'>
           {loading && (<h1>Loading...</h1>)}
-          {error && (<h1>Error: {error}</h1>)}
+          {error && (<h2>{error}</h2>)}
           {weatherData && !loading && !error && (
             <>
               <div className='leftSideForDay'>
