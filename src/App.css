@@ -210,7 +210,13 @@ button:hover {
     font-size: 2vh;
     text-align: center;
     height: 18%;
-    /* background: linear-gradient(to top, blue, rgb(24, 16, 117)); */
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.individualForecastData:hover {
+    background-color: rgb(47, 46, 51);
 }
 
 .dailyForecast {
@@ -257,6 +263,8 @@ button:hover {
 
 .dailyForecastSelectionContainer {
     display: flex;
+    box-sizing: border-box;
+    padding: 20px;
 
     position: absolute;
     top: 25px;
@@ -270,8 +278,7 @@ select {
     font-size: 2.2vh;
     border: none;
     border-radius: 10px;
-    padding: 0px 10px;
-    box-sizing: border-box;
+    
 
     transition-duration: 0.4s;
 }
@@ -286,3 +293,47 @@ select:hover {
 
     /* background-color: white; */
 }
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    height: 50%;
+    background: linear-gradient(to top, rgb(68, 68, 170), rgb(89, 82, 157));
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+    font-size: 2.5vh;
+    box-shadow: 0px 0px 15px white;
+
+    position: absolute;
+    right: 20%;
+    bottom: 25%;
+}
+
+
+.modalBackground {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  
+    z-index: 999;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .modalForecast {
+    display: flex;
+  }
+
+  .selectedForecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }

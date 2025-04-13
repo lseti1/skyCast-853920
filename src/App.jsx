@@ -22,6 +22,9 @@ function App() {
   const error = weatherError || forecastError;  
 
   const [dailyForecastType, setDailyForecastType] = useState("Temp");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedForecast, setSelectedForecast] = useState([]);
+  const [selectedForecastIndex, setSelectedForecastIndex] = useState();
 
   function getForecastTypeValues(type, forecast) {
     switch(type) {
@@ -66,6 +69,31 @@ function App() {
     return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: "2-digit", minute: "2-digit", hour12: true});
   }
 
+  const getForecastDate = (forecastData, index) => {
+    const targetDate = new Date(currentDate);
+    targetDate.setDate(currentDay + index + 1);
+    console.log("Target Date = ", targetDate);
+
+    const day = targetDate.getDate();
+    const month = targetDate.getMonth();
+    const year = targetDate.getFullYear();
+
+    return forecastData.list.filter((forecast) => {
+      const forecastDate = new Date(forecast.dt * 1000);
+      return (
+        forecastDate.getDate() === day &&
+        forecastDate.getMonth() === month &&
+        forecastDate.getFullYear() === year
+      );
+    });
+  }
+
+  const handleForecastClick = (forecastData, index) => {
+    const specificForecast = getForecastDate(forecastData, index);
+    setSelectedForecast(specificForecast);
+    setSelectedForecastIndex(index + 1);
+  };
+  
   return (
     <div className='main'>
       <div className='searchBarTitleContainer'>
@@ -114,7 +142,6 @@ function App() {
         </div>
       </div>
       
-      
       <div className="dailyForecast">
       {forecastData && !loading && !error ? (
         <>
@@ -136,7 +163,6 @@ function App() {
                 {/* {Math.round(forecast.main.temp)}°C<br  /> */}
                 {getForecastTypeValues(dailyForecastType, forecast)}<br  />
                 {formatTime(forecast.dt)}
-                
               </h3>
               <p className='dailyForecastDates'>
                 {formatDate(forecast.dt)}
@@ -149,7 +175,6 @@ function App() {
         <h2>No Daily Forecast To Show</h2>
       )} 
       </div>
-
         <div className="forecastContainer">
         {forecastData && !loading && !error ? (
           <>
@@ -159,7 +184,7 @@ function App() {
             </div>
             <div className='forecastDataContainer'>
               {forecastData.list.filter((_, index) => index % 8 === 7).map((forecast, index) => (
-              <div className="individualForecastData">
+              <div className="individualForecastData" onClick={() => {handleForecastClick(forecastData, index); setIsModalVisible(true); }}>
                 <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <p>
                   <h2>{formatDateToDay(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
@@ -168,13 +193,29 @@ function App() {
               </div>
               ))}
             </div>
-            
           </>
         ) : (
           <h2>No Weekly Forecast To Show</h2>
         )}
-    </div>
-
+      </div>
+      {isModalVisible && (
+        <>
+          <div className="modalBackground" onClick={() => setIsModalVisible(false)}></div>
+            <div className='modal'>
+            <h1>Daily Forecast for {months[currentMonth]} {selectedForecastIndex + currentDay}</h1>
+            <div className='modalForecast'>
+              {selectedForecast.map((forecast) => (
+                  <div className='selectedForecast'>
+                    <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
+                    <p>{Math.round(forecast.main.temp)}°C</p>
+                    <p>{formatTime(forecast.dt)}</p>
+                  </div>
+                ))}
+              </div>
+              <p>Note: Not all forecast information may be present</p>
+            </div>
+        </>
+      )}
     </div>
   );
 };
