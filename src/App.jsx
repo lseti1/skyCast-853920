@@ -8,7 +8,7 @@ function App() {
   const months = ['January', 'Febuary', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
 
-  const [city, setCity] = useState("Brisbane"); // Will Set this to some City but for now leave it empty to not use API calls
+  const [city, setCity] = useState("Brisbane");
   const APIkey = import.meta.env.VITE_OPENWEATHER_API_KEY; // NOTE: APIkeys must have that variable name VITE_SOMETHING
 
   const currentDate = new Date();
@@ -102,7 +102,7 @@ function App() {
       <div className='weatherForDayContainer'>
         {weatherData && !loading && !error && (
         <div className='titleForDay'>
-          <h1>{city}</h1>
+          <h1>{city}, {weatherData.sys.country}</h1>
           <h2>{formatDateToWords(weatherData.dt)}<br />{formatTime(weatherData.dt)}</h2>
         </div>
         )}
