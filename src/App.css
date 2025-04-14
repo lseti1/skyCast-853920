@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
+
 }
 
 .main {
@@ -29,6 +29,7 @@ h1, h2, h3, p {
     font-weight: 300;
 }
 
+
 .searchBarTitleContainer {
     display: flex;
     justify-content: center;
@@ -37,9 +38,10 @@ h1, h2, h3, p {
     box-sizing: border-box;
     padding-right: 20px;
     width: 63%;
+    height: 10%;
     gap: 5%;
-    /* background-color: grey; */
 
+    transition: 0.4s;
     position: absolute;
     top: 5%;
     left: 3%;
@@ -58,11 +60,17 @@ form {
     margin: 0px;
     box-sizing: border-box;
     text-indent: 20px;
-    font-size: 2.5vh;
+    font-size: 2vh;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0);
     width: 50%;
-    height: 40%;
+    height: 60%;
+    transition: 0.4s;
+}
+
+.searchButton {
+    height: 60%;
+    width: 20%;
 }
 
 button {
@@ -83,7 +91,7 @@ button:hover {
 
 .title {
     text-shadow: 0px 0px 5px black;
-    font-size: 8vh;
+    font-size: 6vh;
     font-weight: 500;
 }
 
@@ -97,11 +105,11 @@ button:hover {
     gap: 3%;
     background-color: rgba(47, 46, 51, 0.5);
     box-shadow: 0px 0px 5px black;
-    border-radius: 20px;    
+    border-radius: 20px;
     padding: 20px;
     padding-bottom: 5px;
 
-
+    transition: 0.4s;
     position: absolute;
     left: 3%;
     top: 16%;
@@ -114,7 +122,6 @@ button:hover {
 }
 
 .contentForDay {
-    /* background-color: grey; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,8 +129,7 @@ button:hover {
 }
 
 .weatherForDayIcon {
-    height: 25vh;   
-    /* background-color: white; */
+    height: 25vh;
 }
 
 .leftSideForDay {
@@ -132,7 +138,6 @@ button:hover {
     align-items: center;
     border-right: 1px solid rgba(255, 255, 255, 0.224);
     font-size: 1.5vh;
-    
     width: 50%;
 }
 
@@ -150,17 +155,15 @@ button:hover {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
     font-size: 3vh;
-
     align-items: center;
-    
+    text-align: right;
+    transition: 0.4s;
     width: 50%;
     height: 80%;
-    text-align: right;
-    /* background-color: grey; */
 }
 
 .forecastContainer {
-    background-color:  rgba(47, 46, 51, 0.5);
+    background-color: rgba(47, 46, 51, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -184,6 +187,7 @@ button:hover {
     margin-bottom: 10px;
     width: 100%;
     font-size: 1.8vh;
+    transition: 0.4s;
 }
 
 .forecastDataContainer {
@@ -217,7 +221,7 @@ button:hover {
 }
 
 .dailyForecast {
-    background-color:  rgba(47, 46, 51, 0.5);
+    background-color: rgba(47, 46, 51, 0.5);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -231,6 +235,7 @@ button:hover {
     padding-bottom: 5px;
     font-size: 1.8vh;
 
+    transition: 0.4s;
     position: absolute;
     left: 3%;
     bottom: 5%;
@@ -262,12 +267,13 @@ button:hover {
 .dailyForecastSelectionContainer {
     display: flex;
     height: 30%;
-    width: 8%;
+    width: 100px;
     box-sizing: border-box;
     padding: 20px;
 
+    transition: 0.4s;
     position: absolute;
-    top: 25px;
+    top: 5px;
     right: 50px;
 }
 
@@ -278,7 +284,7 @@ select {
     font-size: 2.2vh;
     border: none;
     border-radius: 10px;
-    
+
 
     transition-duration: 0.4s;
 }
@@ -290,8 +296,7 @@ select:hover {
 .forecastIcons {
     height: 12vh;
     width: auto;
-
-    /* background-color: white; */
+    transition: 0.4s;
 }
 
 .modal {
@@ -306,7 +311,7 @@ select:hover {
     padding: 20px;
     box-sizing: border-box;
     z-index: 1000;
-    
+
     box-shadow: 0px 0px 15px white;
 
     position: absolute;
@@ -320,21 +325,102 @@ select:hover {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
-  
+
     z-index: 999;
     position: absolute;
     top: 0%;
     left: 0%;
-  }
+}
 
-  .modalForecast {
+.modalForecast {
     display: flex;
     font-size: 2.5vh;
-  }
+}
 
-  .selectedForecast {
+.selectedForecast {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
+
+/* Small-Medium Phones */
+@media screen and (orientation: portrait) and (max-width: 768px) {
+}
+
+/* Larger Tablets/Small Laptops */
+@media screen and (orientation: portrait) and (min-width: 769px) and (max-width: 1299px) {
+}
+
+/* Phones in Landscape */
+@media screen and (orientation: landscape) and (max-width: 1299px) and (max-height: 512px) and (hover: none) {
+}
+
+/* Smaller Laptop Screens */
+@media screen and (orientation: landscape) and (min-width: 769px) and (max-width: 1299px) and (min-height: 513px) {
+    .titleForDay {
+        background-color: rgba(255, 255, 255, 0.479);
+    }
+
+    .leftSideForDay {
+        width: 30%;
+        flex-direction: column;
+    }
+
+    .searchButton {
+        width: 25%;
+    }
+
+    .searchBarInput {
+        width: 75%;
+    }
+
+    .dailyForecastSelectionContainer {
+        right: 2%;
+    }
+
+    .rightSideForDay {
+        font-size: 2.5vh;
+        text-align: center;
+        width: 70%;
+    }
+
+    .forecastTitleContainer, .leftSideDayInfo {
+        font-size: 1.5vh;
+    }
+
+    .searchBarTitleContainer {
+        width: 58%;
+    }
+
+    .forecastContainer {
+        width: 35%;
+    }
+
+    .weatherForDayContainer, .dailyForecast {
+        width: 57%;
+    }
+
+    .searchBarInput {
+        font-size: 1.8vh;
+    }
+
+    .forecastIcons {
+        height: 8vh;
+    }
+
+    .weatherForDayIcon {
+        height: 15vh;
+    }
+}
+
+/* Medium Sized Laptop Screens */
+@media screen and (orientation: landscape) and (min-width: 1300px) and (max-width: 1500px) {
+    .rightSideForDay {
+        font-size: 2.5vh;
+    }
+
+    .individualForecastData, .searchBarInput {
+        font-size: 1.8vh;
+    }
+}
