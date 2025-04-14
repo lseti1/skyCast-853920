@@ -135,8 +135,8 @@ function App() {
       <div className="dailyForecast">
       {forecastData && !loading && !error && (
         <>
-          <h1>3-Hourly Forecast</h1>
-          <p>Forecast for next 48 hours</p>
+          <h1>Daily Forecast</h1>
+          <p>Forecast for next 48 hours (3-Hourly)</p>
           <div className='dailyForecastSelectionContainer'>
             <select className='dailyForecastSelector' value={dailyForecastType} onChange={(e) => setDailyForecastType(e.target.value)}>
               <option value="Temp">°C</option>
