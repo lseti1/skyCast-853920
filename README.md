@@ -1,12 +1,23 @@
-# React + Vite
+ReactVite Weather App Version 1.00 (14/04/25)
+# Skycast
+This is a simple web app that displays weather information from the OpenWeather API, made with ReactVite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
+The web app does not require installation. Simply ensure that you have an internet connection. 
 
-Currently, two official plugins are available:
+## Usage
+- Enter in your city into the search bar to see various weather information
+- Utilise the selector in the 3-Hourly Forecast section to see data on Temps, Rain, Wind Speeds & Humidity
+- Each day on the Weekly Forecast can be pressed to open up a modal and see the 3-hourly forecast for that day
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Extensive display for today's weather
+- 3-hourly intervals of key weather information in a scrollable container
+- Forecast info up to 5 days ahead with ability to see each individual days 3-hourly forecast
+- Simple layout for a user-friendly experience, all in a single page with modals for extended information
 
-## Expanding the ESLint configuration
+## Author
+Lucas Setiady   
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Contact
+For any questions or to get in contact, please email me using the mail icon on my Digital Portfolio. 
