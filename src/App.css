@@ -261,6 +261,8 @@ button:hover {
 
 .dailyForecastSelectionContainer {
     display: flex;
+    height: 30%;
+    width: 8%;
     box-sizing: border-box;
     padding: 20px;
 
@@ -271,8 +273,8 @@ button:hover {
 
 select {
     background-color: rgba(47, 46, 51, 0.5);
-    width: 60px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     font-size: 2.2vh;
     border: none;
     border-radius: 10px;
