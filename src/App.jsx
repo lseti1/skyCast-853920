@@ -193,8 +193,8 @@ function App() {
               {selectedForecast.map((forecast) => (
                   <div className='selectedForecast'>
                     <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
-                    <p>{Math.round(forecast.main.temp)}°C</p>
-                    <p>{formatTime(forecast.dt)}</p>
+                    <p>{Math.round(forecast.main.temp)}°C<br   />
+                    {formatTime(forecast.dt)}</p>
                   </div>
                 ))}
               </div>
