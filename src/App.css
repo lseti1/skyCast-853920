@@ -172,7 +172,7 @@ button:hover {
     width: 30%;
     height: 90%;
     box-shadow: 0px 0px 5px black;
-    border-radius: 20px;
+    border-radius: 5px;
     box-sizing: border-box;
     padding: 15px;
     padding-top: 10px;
@@ -206,7 +206,7 @@ button:hover {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0px 0px 1px rgb(255, 255, 255);
     box-sizing: border-box;
     font-size: 2vh;
@@ -310,7 +310,7 @@ select:hover {
     width: 60%;
     height: 50%;
     background: linear-gradient(to top, rgb(68, 68, 170), rgb(89, 82, 157));
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     box-sizing: border-box;
     z-index: 1000;
@@ -351,6 +351,7 @@ select:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 /* Small-Medium Phones */
