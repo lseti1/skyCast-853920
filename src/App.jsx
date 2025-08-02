@@ -1,6 +1,6 @@
 // Notes may be scattered across code for the purposes of learning
 
-import { useState, useEffect, use} from 'react'
+import { useState, useEffect, use } from 'react'
 import './App.css'
 import { useWeather } from './hooks/useWeather';
 
@@ -15,7 +15,7 @@ function App() {
   const currentDay = currentDate.getDate();
   const currentMonth = currentDate.getMonth();
 
-  const {weatherData, forecastData, loading, error} = useWeather(city, APIkey);
+  const { weatherData, forecastData, loading, error } = useWeather(city, APIkey);
 
   const [dailyForecastType, setDailyForecastType] = useState("Temp");
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -23,7 +23,7 @@ function App() {
   const [selectedForecastIndex, setSelectedForecastIndex] = useState();
 
   function getForecastTypeValues(type, forecast) {
-    switch(type) {
+    switch (type) {
       case 'Temp':
         return `${Math.round(forecast.main.temp)}°C`
       case 'Wind':
@@ -45,23 +45,23 @@ function App() {
   };
 
   function formatDate(timestamp) {
-    return new Date(timestamp * 1000).toLocaleDateString('en-US', {day: "2-digit", month: "2-digit"});
+    return new Date(timestamp * 1000).toLocaleDateString('en-US', { day: "2-digit", month: "2-digit" });
   }
 
   function formatDateToWords(timestamp) {
-    return new Date(timestamp * 1000).toLocaleDateString('en-US', {day: "numeric", month: "short"});
+    return new Date(timestamp * 1000).toLocaleDateString('en-US', { day: "numeric", month: "short" });
   }
 
   function formatDateToDay(timestamp) {
-    return new Date(timestamp * 1000).toLocaleDateString('en-US', {weekday: "long"});
+    return new Date(timestamp * 1000).toLocaleDateString('en-US', { weekday: "long" });
   }
 
   function formatTime(timestamp) {
-    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: "numeric", hour12: true});
+    return new Date(timestamp * 1000).toLocaleTimeString('en-US', { hour: "numeric", hour12: true });
   }
 
   function formatTimeToHoursMinutes(timestamp) {
-    return new Date(timestamp * 1000).toLocaleTimeString('en-US', {hour: "2-digit", minute: "2-digit", hour12: true});
+    return new Date(timestamp * 1000).toLocaleTimeString('en-US', { hour: "2-digit", minute: "2-digit", hour12: true });
   }
 
   const getForecastDate = (forecastData, index) => {
@@ -88,23 +88,23 @@ function App() {
     setSelectedForecast(specificForecast);
     setSelectedForecastIndex(index + 1);
   };
-  
+
   return (
     <div className='main'>
       <div className='searchBarTitleContainer'>
         <form onSubmit={handleSubmit}>
-          <input className='searchBarInput' type="text" name="city" placeholder="Enter City (e.g. Brisbane)"/>
+          <input className='searchBarInput' type="text" name="city" placeholder="Enter City (e.g. Brisbane)" />
           <button className='searchButton' type="submit">Search</button>
         </form>
         <h1 className="title">Skycast</h1>
       </div>
-      
+
       <div className='weatherForDayContainer'>
         {weatherData && !loading && !error && (
-        <div className='titleForDay'>
-          <h1>{city}, {weatherData.sys.country}</h1>
-          <h2>{formatDateToWords(weatherData.dt)}<br />{formatTime(weatherData.dt)}</h2>
-        </div>
+          <div className='titleForDay'>
+            <h1>{city}, {weatherData.sys.country}</h1>
+            <h2>{formatDateToWords(weatherData.dt)}<br />{formatTime(weatherData.dt)}</h2>
+          </div>
         )}
 
         <div className='contentForDay'>
@@ -131,39 +131,38 @@ function App() {
           )}
         </div>
       </div>
-      
+
       <div className="dailyForecast">
-      {forecastData && !loading && !error && (
-        <>
-          <h1>Daily Forecast</h1>
-          <p>Forecast for next 48 hours (3-Hourly)</p>
-          <div className='dailyForecastSelectionContainer'>
-            <select className='dailyForecastSelector' value={dailyForecastType} onChange={(e) => setDailyForecastType(e.target.value)}>
-              <option value="Temp">°C</option>
-              <option value="Wind">🌀</option>
-              <option value="Humidity">💧</option>
-              <option value="Rain">🌧️</option>
-            </select>
-          </div>
-          <div className="dailyForecastDataContainer">
-          {forecastData.list.filter((_, index) => index < 17).map((forecast, index) => (
-            <div className="individualDailyForecastData"> 
-              <h3>
-                <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
-                {/* {Math.round(forecast.main.temp)}°C<br  /> */}
-                {getForecastTypeValues(dailyForecastType, forecast)}<br  />
-                {formatTime(forecast.dt)}
-              </h3>
-              <p className='dailyForecastDates'>
-                {formatDate(forecast.dt)}
-              </p>
+        {forecastData && !loading && !error && (
+          <>
+            <h1>Daily Forecast</h1>
+            <p>Forecast for next 48 hours (3-Hourly)</p>
+            <div className='dailyForecastSelectionContainer'>
+              <select className='dailyForecastSelector' value={dailyForecastType} onChange={(e) => setDailyForecastType(e.target.value)}>
+                <option value="Temp">°C</option>
+                <option value="Wind">🌀</option>
+                <option value="Humidity">💧</option>
+                <option value="Rain">🌧️</option>
+              </select>
             </div>
-            ))}
-          </div>
-        </>
-      )} 
+            <div className="dailyForecastDataContainer">
+              {forecastData.list.filter((_, index) => index < 17).map((forecast, index) => (
+                <div className="individualDailyForecastData">
+                  <h3>
+                    <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
+                    {getForecastTypeValues(dailyForecastType, forecast)}<br />
+                    {formatTime(forecast.dt)}
+                  </h3>
+                  <p className='dailyForecastDates'>
+                    {formatDate(forecast.dt)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-        <div className="forecastContainer">
+      <div className="forecastContainer">
         {forecastData && !loading && !error && (
           <>
             <div className='forecastTitleContainer'>
@@ -172,13 +171,13 @@ function App() {
             </div>
             <div className='forecastDataContainer'>
               {forecastData.list.filter((_, index) => index % 8 === 7).map((forecast, index) => (
-              <div className="individualForecastData" onClick={() => {handleForecastClick(forecastData, index); setIsModalVisible(true); }}>
-                <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
-                <p>
-                  <h2>{formatDateToDay(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
-                  Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br  />
-                </p>
-              </div>
+                <div className="individualForecastData" onClick={() => { handleForecastClick(forecastData, index); setIsModalVisible(true); }}>
+                  <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
+                  <p>
+                    <h2>{formatDateToDay(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
+                    Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br />
+                  </p>
+                </div>
               ))}
             </div>
           </>
@@ -187,19 +186,19 @@ function App() {
       {isModalVisible && (
         <>
           <div className="modalBackground" onClick={() => setIsModalVisible(false)}></div>
-            <div className='modal'>
-            <h1>Daily Forecast for {months[currentMonth]} {selectedForecastIndex + currentDay}</h1>
+          <div className='modal'>
+            <h1>Forecast for {months[currentMonth]} {selectedForecastIndex + currentDay}</h1>
             <div className='modalForecast'>
               {selectedForecast.map((forecast) => (
-                  <div className='selectedForecast'>
-                    <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
-                    <p>{Math.round(forecast.main.temp)}°C<br   />
+                <div className='selectedForecast'>
+                  <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
+                  <p>{Math.round(forecast.main.temp)}°C<br />
                     {formatTime(forecast.dt)}</p>
-                  </div>
-                ))}
-              </div>
-              <p>Note: Not all forecast information may be present</p>
+                </div>
+              ))}
             </div>
+            <p>Note: Not all forecast information may be present</p>
+          </div>
         </>
       )}
     </div>
