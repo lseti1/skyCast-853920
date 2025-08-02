@@ -135,7 +135,7 @@ button:hover {
 
 .leftSideForDay {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     border-right: 1px solid rgba(255, 255, 255, 0.224);
     font-size: 1.5vh;
@@ -148,19 +148,27 @@ button:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 2.5vh;
+    font-size: 2vh;
+    font-weight: bold;
+    width: 100%;
 }
 
 .rightSideForDay {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    font-size: 3vh;
-    align-items: center;
-    text-align: right;
+    font-size: 2vh;
+    font-weight: bold;
+    align-items: start;
+    text-align: center;
     transition: 0.5s;
     width: 50%;
-    height: 80%;
+    height: 100%;
+}
+
+.rightSideMetricDisplay {
+    display: flex;
+    flex-direction: column;
 }
 
 .forecastContainer {

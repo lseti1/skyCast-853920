@@ -115,17 +115,35 @@ function App() {
               <div className='leftSideForDay'>
                 <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <div className='leftSideDayInfo'>
-                  <h2>{Math.round(weatherData.main.temp)}°C</h2>
-                  <h2>({weatherData.weather[0].description})</h2>
+                  <h1>{Math.round(weatherData.main.temp)}°C</h1>
+                  <p>({weatherData.weather[0].description})</p>
                 </div>
               </div>
               <div className='rightSideForDay'>
-                <p>Max: {Math.round(weatherData.main.temp_max)}°C</p>
-                <p>Min: {Math.round(weatherData.main.temp_min)}°C</p>
-                <p>Feels Like: {Math.round(weatherData.main.feels_like)}°C</p>
-                <p>Humidity: {weatherData.main.humidity}%</p>
-                <p>Sunrise: {formatTimeToHoursMinutes(weatherData.sys.sunrise)}</p>
-                <p>Sunset: {formatTimeToHoursMinutes(weatherData.sys.sunset)}</p>
+                <div className='rightSideMetricDisplay'>
+                  <p>Max</p>
+                  <p style={{ fontSize: '3vh', fontWeight: 'lighter'}}>{Math.round(weatherData.main.temp_max)}°C</p>
+                </div>
+                <div>
+                  <p>Min</p>
+                  <p style={{ fontSize: '3vh', fontWeight: 'lighter'}}>{Math.round(weatherData.main.temp_min)}°C</p>
+                </div>
+                <div>
+                  <p>Feels Like</p>
+                  <p style={{ fontSize: '3vh', fontWeight: 'lighter'}}>{Math.round(weatherData.main.feels_like)}°C</p>
+                </div>
+                <div>
+                  <p>Humidity</p>
+                  <p style={{ fontSize: '3vh', fontWeight: 'lighter'}}>{weatherData.main.humidity}%</p>
+                </div>
+                <div>
+                  <p>Sunrise</p>
+                  <p style={{ fontSize: '3vh', fontWeight: 'lighter'}}>{formatTimeToHoursMinutes(weatherData.sys.sunrise)}</p>
+                </div>
+                <div>
+                  <p>Sunset</p>
+                  <p style={{ fontSize: '3vh', fontWeight: 'lighter'}}>{formatTimeToHoursMinutes(weatherData.sys.sunset)}</p>
+                </div>
               </div>
             </>
           )}
