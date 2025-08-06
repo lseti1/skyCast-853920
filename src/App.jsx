@@ -116,7 +116,6 @@ function App() {
                 <img className='weatherForDayIcon' src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`} alt="weatherIcon" />
                 <div className='leftSideDayInfo'>
                   <h1>{Math.round(weatherData.main.temp)}°C</h1>
-                  <p>({weatherData.weather[0].description})</p>
                 </div>
               </div>
               <div className='rightSideForDay'>
@@ -154,7 +153,6 @@ function App() {
         {forecastData && !loading && !error && (
           <>
             <h1>Daily Forecast</h1>
-            <p>Forecast for next 48 hours (3-Hourly)</p>
             <div className='dailyForecastSelectionContainer'>
               <select className='dailyForecastSelector' value={dailyForecastType} onChange={(e) => setDailyForecastType(e.target.value)}>
                 <option value="Temp">°C</option>
@@ -193,7 +191,7 @@ function App() {
                   <img className="forecastIcons" src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@4x.png`} alt="weatherIcon" />
                   <p>
                     <h2>{formatDateToDay(forecast.dt)}, {Math.round(forecast.main.temp)}°C</h2>
-                    Feels Like: {Math.round(forecast.main.feels_like)}°C ({forecast.weather[0].description})<br />
+                    Feels like {Math.round(forecast.main.feels_like)}°C with {forecast.weather[0].description}<br />
                   </p>
                 </div>
               ))}
